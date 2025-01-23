@@ -1,7 +1,6 @@
 package auth
 
 import (
-	"errors"
 	"testing"
 )
 
@@ -24,7 +23,7 @@ func TestGetAPIKey(t *testing.T) {
 			name:    "malformed auth header",
 			headers: map[string][]string{"Authorization": {"ApiKey"}},
 			want:    "",
-			wantErr: errors.New("malformed authorization header"), //ErrMalformedAuthHeader, //errors.New("malformed authorization header"),
+			wantErr: ErrMalformedAuthHeader, //errors.New("malformed authorization header"),
 		},
 		{
 			name:    "valid auth header",
